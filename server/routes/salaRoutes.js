@@ -9,7 +9,7 @@ const { salaSchema } = require('../validations/salaValidation');
 // Público (mas logado) -> GET
 router.get('/', authMiddleware, salaController.listarSalas);
 router.get('/:id', authMiddleware, salaController.buscarSala);
-
+router.get('/:id/horarios', authMiddleware, salaController.horariosOcupados);
 // Só Admin -> POST, PUT, DELETE (com validação Joi)
 router.post(
   '/', 

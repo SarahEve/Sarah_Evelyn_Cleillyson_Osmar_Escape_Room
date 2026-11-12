@@ -1,4 +1,5 @@
 const Sala = require('../models/Sala');
+const Agendamento = require('../models/Agendamento');
 
 // GET /api/salas (user + admin)
 const listarSalas = async (req, res) => {
@@ -67,4 +68,28 @@ const deletarSala = async (req, res) => {
   }
 };
 
-module.exports = { listarSalas, buscarSala, criarSala, atualizarSala, deletarSala };
+const horariosOcupados = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { data } = req.query;
+
+    if (!data) return res.status(400).json({ erro: 'Data é obrigatória' });
+
+    const dataInicio = new Date(`${data}T00:00:00.000Z`);
+    const dataFim = new Date(`${data}T23:59:59.999Z`);
+
+    const agendamentos = await Agendamento.find({
+      sala: id,
+      data: { $gte: dataInicio, $lte: dataFim }, // Busca o dia inteiro
+      status: { $in: ['pendente', 'aprovado'] }
+    });
+
+    const horarios = agendamentos.map(ag => ag.hora);
+    return res.json(horarios);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ erro: 'Erro ao buscar horários' });
+  }
+};
+
+module.exports = { listarSalas, buscarSala, criarSala, atualizarSala, deletarSala, horariosOcupados };
