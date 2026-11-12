@@ -1,0 +1,86 @@
+.navbar {
+  background-color: #1e293b;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  flex-wrap: wrap; /* Permite quebrar linha no celular */
+  gap: 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.2rem;
+  color: #38bdf8;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.2s; /* Animação suave */
+}
+
+.nav-link:hover {
+  color: #fff; /* Fica branco ao passar o mouse */
+  text-decoration: underline;
+}
+
+.nav-link.admin-link {
+  color: #f59e0b;
+  font-weight: bold;
+}
+
+.nav-link.admin-link:hover {
+  color: #fbbf24;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.btn-logout {
+  background-color: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-logout:hover {
+  background-color: #dc2626; /* Vermelho mais escuro no hover */
+}
+
+.btn-logout:active {
+  transform: scale(0.95); /* Efeito de apertar */
+}
+
+/* Regras para telas menores (Mobile) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .navbar-user {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #334155;
+  }
+}

@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
+import Navbar from './components/Navbar'; // Importando o menu
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Salas from './pages/Salas';
@@ -9,25 +10,29 @@ import AdminRoute from './components/AdminRoute';
 
 function App() {
   return (
-    <Routes>
-      {/* Rotas Públicas */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+    <>
+      <Navbar /> {/* O menu vai aparecer em todas as telas (se estiver logado) */}
+      
+      <Routes>
+        {/* Rotas Públicas */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-      {/* Rotas Protegidas (User e Admin) */}
-      <Route element={<PrivateRoute />}>
-        <Route path="/salas" element={<Salas />} />
-        <Route path="/meus-agendamentos" element={<MeusAgendamentos />} />
-      </Route>
+        {/* Rotas Protegidas (User e Admin) */}
+        <Route element={<PrivateRoute />}>
+          <Route path="/salas" element={<Salas />} />
+          <Route path="/meus-agendamentos" element={<MeusAgendamentos />} />
+        </Route>
 
-      {/* Rotas Exclusivas Admin */}
-      <Route element={<AdminRoute />}>
-        <Route path="/admin/pedidos" element={<AdminPedidos />} />
-      </Route>
+        {/* Rotas Exclusivas Admin */}
+        <Route element={<AdminRoute />}>
+          <Route path="/admin/pedidos" element={<AdminPedidos />} />
+        </Route>
 
-      {/* Redirecionamento padrão */}
-      <Route path="*" element={<Navigate to="/login" replace />} />
-    </Routes>
+        {/* Redirecionamento padrão */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </>
   );
 }
 
