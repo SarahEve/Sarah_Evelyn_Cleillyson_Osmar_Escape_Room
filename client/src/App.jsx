@@ -7,6 +7,7 @@ import MeusAgendamentos from './pages/MeusAgendamentos';
 import AdminPedidos from './pages/AdminPedidos';
 import PrivateRoute from './components/PrivateRoute';
 import AdminRoute from './components/AdminRoute';
+import NovoAgendamento from './pages/NovoAgendamento';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         {/* Rotas Protegidas (User e Admin) */}
         <Route element={<PrivateRoute />}>
           <Route path="/salas" element={<Salas />} />
+          <Route path="/novo-agendamento" element={<NovoAgendamento />} /> 
           <Route path="/meus-agendamentos" element={<MeusAgendamentos />} />
         </Route>
 
