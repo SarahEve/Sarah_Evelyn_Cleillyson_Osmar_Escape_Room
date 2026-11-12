@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Navbar from './components/Navbar'; // Importando o menu
+import Navbar from './components/Navbar'; 
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Salas from './pages/Salas';
@@ -8,6 +8,7 @@ import AdminPedidos from './pages/AdminPedidos';
 import PrivateRoute from './components/PrivateRoute';
 import AdminRoute from './components/AdminRoute';
 import NovoAgendamento from './pages/NovoAgendamento';
+import AdminSalas from './pages/AdminSalas';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         {/* Rotas Exclusivas Admin */}
         <Route element={<AdminRoute />}>
           <Route path="/admin/pedidos" element={<AdminPedidos />} />
+          <Route path="/admin/salas" element={<AdminSalas />} />  
         </Route>
 
         {/* Redirecionamento padrão */}

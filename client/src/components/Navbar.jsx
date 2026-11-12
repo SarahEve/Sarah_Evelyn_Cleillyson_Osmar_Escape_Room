@@ -21,10 +21,14 @@ export default function Navbar() {
         <Link to="/salas" className="nav-link">Salas</Link>
         <Link to="/meus-agendamentos" className="nav-link">Meus Agendamentos</Link>
         
-        {usuario.role === 'admin' && (
+        {usuario.role === 'admin' && (<>
           <Link to="/admin/pedidos" className="nav-link admin-link">
             Painel Admin
           </Link>
+          <Link to="/admin/salas" className="nav-link admin-link">
+            Gerenciar Salas
+          </Link>
+          </>
         )}
       </div>
 
