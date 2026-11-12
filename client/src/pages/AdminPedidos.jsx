@@ -1,0 +1,1 @@
+export default function AdminPedidos() { return <h1>Admin: Pedidos (Em breve)</h1>; }

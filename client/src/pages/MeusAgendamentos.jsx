@@ -1,0 +1,1 @@
+export default function MeusAgendamentos() { return <h1>Meus Agendamentos (Em breve)</h1>; }

@@ -1,0 +1,1 @@
+export default function Salas() { return <h1>Lista de Salas (Em breve)</h1>; }
