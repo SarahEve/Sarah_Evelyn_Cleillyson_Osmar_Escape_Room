@@ -23,11 +23,15 @@ connectDB();
 // Rotas
 app.use('/api/auth', authRoutes);
 app.use('/api/agendamentos', agendamentoRoutes);
-// app.use('/api/salas', salaRoutes);
+app.use('/api/salas', salaRoutes);
 
 // Rota de teste
 app.get('/', (req, res) => {
   res.json({ mensagem: 'API do Scaperoom funcionando 🎭' });
+});
+
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
 const PORT = process.env.PORT || 3000;
