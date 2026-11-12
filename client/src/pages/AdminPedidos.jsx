@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../services/api';
+import Spinner from '../components/Spinner';
 
 export default function AdminPedidos() {
   const [agendamentos, setAgendamentos] = useState([]);
@@ -33,7 +34,7 @@ export default function AdminPedidos() {
     }
   };
 
-  if (loading) return <div style={{ padding: '2rem' }}>Carregando pedidos...</div>;
+  if (loading) return <Spinner />;
 
   return (
     <div style={{ padding: '2rem', maxWidth: '1000px', margin: '0 auto' }}>

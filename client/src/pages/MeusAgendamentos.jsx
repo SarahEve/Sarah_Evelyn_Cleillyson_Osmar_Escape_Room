@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../services/api';
+import Spinner from '../components/Spinner';
 
 export default function MeusAgendamentos() {
   const [agendamentos, setAgendamentos] = useState([]);
@@ -31,7 +32,7 @@ export default function MeusAgendamentos() {
     }
   };
 
-  if (loading) return <div style={{ padding: '2rem', textAlign: 'center' }}>Carregando seus agendamentos...</div>;
+  if (loading) return <Spinner />;
 
   return (
     <div style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>

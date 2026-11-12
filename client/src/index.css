@@ -6,15 +6,25 @@
 }
 
 body {
-  background-color: #f3f4f6;
-  color: #333;
+  background-color: #f8fafc;
+  color: #1e293b;
 }
 
-a {
-  color: #2563eb;
-  text-decoration: none;
+input, select, button {
+  font-size: 1rem;
+  max-width: 100%;
 }
 
-a:hover {
-  text-decoration: underline;
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column !important;
+    gap: 1rem;
+    padding: 1rem !important;
+    text-align: center;
+  }
+  
+  nav > div {
+    flex-direction: column;
+    gap: 0.5rem !important;
+  }
 }
