@@ -56,10 +56,7 @@ const AgendamentoSchema = new mongoose.Schema(
   }
 );
 
-// Índice para acelerar busca de conflito (validação fica no controller)
-AgendamentoSchema.index({ sala: 1, data: 1, hora: 1 });
 
-// (Opcional, se quiserem tentar a defesa em profundidade)
 // Se o Atlas recusar, removam este bloco e fiquem só com a validação no controller
 AgendamentoSchema.index(
   { sala: 1, data: 1, hora: 1 },
